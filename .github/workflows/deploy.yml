@@ -35,3 +35,18 @@ jobs:
         run: | 
           echo ${{secrets.MY_NAME}}
           echo ${{secrets.MY_HOBBY}}
+
+      # 1. 내 저장소의 코드를 가상 환경으로 가져오기
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. 파이썬 설치
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      # 3. 파이썬 파일 실행 (main.py가 있다는 가정 하에)
+      - name: Run script
+        run: python main.py
+
